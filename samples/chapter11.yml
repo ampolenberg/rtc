@@ -1,0 +1,44 @@
+---
+- add: camera
+  hsize: 800
+  vsize: 750
+  fov: 1.0471975512
+  from: [0.0, 1.5, -8.0]
+  to: [0.0, 1.0, 0.0]
+  up: [0.0, 1.0, 0.0]
+  aa:
+    level: 10
+    method: msaa
+    tolerance: 0.05
+
+- add: light
+  type: point
+  at: [-10.0, 10.0, -10.0]
+  intensity: [1.0, 1.0, 1.0]
+
+# floor
+- add: plane
+  material:
+    reflective: 0.6
+    pattern:
+      type: checkers
+      colors:
+        - [0.0, 0.6, 0.0]
+        - [1.0, 1.0, 1.0]
+
+# middle sphere
+- add: sphere
+  transform:
+    - [translate, -0.5, 1.0, 0.5]
+  material:
+    reflective: 0.1
+    pattern:
+      type: striped
+      colors:
+        - [0.0, 0.0, 1.0]
+        - [1.0, 0.0, 0.0]
+      transform:
+        - [rotate-y, 1.15]
+        - [scale, 0.15, 0.15, 0.15]
+    diffuse: 0.7
+    specular: 0.3
